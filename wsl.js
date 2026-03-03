@@ -66,6 +66,28 @@ function toggleAccordion(btn) {
 }
 
 // ── Quiz ──────────────────────────────────────────────────
+/*function checkAnswer(btn, correct) {
+    const quiz     = btn.closest('.quiz-block');
+    const buttons  = quiz.querySelectorAll('button');
+    const feedback = quiz.querySelector('.quiz-feedback');
+
+    if (correct) {
+        buttons.forEach(b => { b.disabled = true; });
+        btn.classList.add('correct');
+        feedback.textContent = '✓ Correct!';
+        feedback.className = 'quiz-feedback correct';
+        const unlocksId = btn.closest('.quiz-block').dataset.unlocks;
+        if (unlocksId) {
+            document.getElementById(unlocksId).classList.remove('locked');
+        } 
+    } else {
+        btn.disabled = true;
+        btn.classList.add('wrong');
+        feedback.textContent = '✗ Not quite — try another option!';
+        feedback.className = 'quiz-feedback wrong';
+    }
+}*/
+
 function checkAnswer(btn, correct) {
     const quiz     = btn.closest('.quiz-block');
     const buttons  = quiz.querySelectorAll('button');
@@ -76,6 +98,22 @@ function checkAnswer(btn, correct) {
         btn.classList.add('correct');
         feedback.textContent = '✓ Correct!';
         feedback.className = 'quiz-feedback correct';
+
+        // Mark this quiz as completed
+        btn.closest('.quiz-block').dataset.completed = 'true';
+
+        // Check every locked section to see if its requirements are met
+        document.querySelectorAll('.step-section.locked').forEach(section => {
+            const requires = section.dataset.requires;
+            if (!requires) return;
+
+            const allDone = requires.split(' ').every(id => {
+                const quiz = document.getElementById(id);
+                return quiz && quiz.dataset.completed === 'true';
+            });
+
+        if (allDone) section.classList.remove('locked');
+        });
     } else {
         btn.disabled = true;
         btn.classList.add('wrong');

@@ -135,12 +135,12 @@
         <code>PowerShell</code>
       </li>
       <li>
-        Right-click <strong>Windows PowerShell</strong> →
-        <strong>Run as administrator</strong>
+        If you are using a secondary account on your machine, make 
+        sure it has adminsitrator privileges
       </li>
     </ul>
 
-    <div class="quiz-block">
+    <div class="quiz-block" id="quiz-1">
       <h4>✦ Quick Check</h4>
       <p class="quiz-question">
         What is the relationship between a shell and a kernel?
@@ -174,7 +174,7 @@
   <hr />
 
   <!-- ── STEP 2 ──────────────────────────────────────────────── -->
-  <div class="step-section">
+  <div class="step-section locked" data-requires="quiz-1">
     <div class="step-header">
       <span class="step-badge">STEP 2</span>
       <h2>Install WSL</h2>
@@ -250,7 +250,7 @@
     <h3>Close WSL</h3>
     <p>Simply close the PowerShell window. You're done with it for now.</p>
 
-    <div class="quiz-block">
+    <div class="quiz-block" id="quiz-2">
       <h4>✦ Quick Check</h4>
       <p class="quiz-question">
         Why might your password appear invisible when you type it
@@ -286,7 +286,7 @@
   <hr />
 
   <!-- ── STEP 3 ──────────────────────────────────────────────── -->
-  <div class="step-section">
+  <div class="step-section locked" data-requires="quiz-2"> 
     <div class="step-header">
       <span class="step-badge">STEP 3</span>
       <h2>Open Ubuntu</h2>
@@ -317,11 +317,30 @@
   <hr />
 
   <!-- ── STEP 4 ──────────────────────────────────────────────── -->
-  <div class="step-section">
+  <div class="step-section locked" data-requires="quiz-2">
     <div class="step-header">
       <span class="step-badge">STEP 4</span>
       <h2>Set Up Your Shell &amp; Learn Bash Commands</h2>
     </div>
+
+    <h3>Enabling copy/paste in Ubuntu</h3>
+    <p>
+      By default, <kbd>Ctrl+V</kbd> doesn't paste in the terminal.
+      To fix it:
+    </p>
+    <ol>
+      <li>
+        Right-click the Ubuntu title bar → <strong>Properties</strong>
+      </li>
+      <li>
+        Under <em>Edit Options</em>, check
+        <strong>"Use Ctrl+Shift+C/V as Copy/Paste"</strong>
+      </li>
+      <li>Click OK</li>
+    </ol>
+    <p>
+      After that, use <kbd>Ctrl+Shift+V</kbd> to paste into the terminal.
+    </p>
 
     <h3>First commands to try</h3>
 
@@ -350,39 +369,30 @@
       <pre>sudo apt update && sudo apt upgrade</pre>
     </div>
 
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAccordion(this)">
-        <span>What do sudo, apt update, and apt upgrade each do?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-body">
-        <div class="accordion-inner">
-          <p>
-            <code>sudo</code> — "superuser do." Runs the command with
-            administrator
-            (<span class="term" tabindex="0">root
-              <span class="term-tooltip">
-                The "root" user is the all-powerful admin account on
-                Linux systems. sudo lets you borrow that power for a
-                single command.
-              </span>
-            </span>) privileges.
-          </p>
-          <p>
-            <code>apt update</code> — Refreshes the list of available
-            software packages from the internet.
-          </p>
-          <p>
-            <code>apt upgrade</code> — Actually installs the newer
-            versions of any outdated packages.
-          </p>
-          <p>
-            The <code>&&</code> runs both commands in sequence — if the
-            first succeeds, the second runs automatically.
-          </p>
-        </div>
-      </div>
-    </div>
+    <p>What do sudo, apt update, and apt upgrade each do?</p>
+    <ul>
+      <li>
+        <code>sudo</code> — "superuser do." Runs the command with administrator
+        (<span class="term" tabindex="0">root
+          <span class="term-tooltip">
+            The "root" user is the all-powerful admin account on Linux systems.
+            sudo lets you borrow that power for a single command.
+          </span>
+        </span>) privileges.
+      </li>
+      <li>
+        <code>apt update</code> — Refreshes the list of available software packages
+        from the internet.
+      </li>
+      <li>
+        <code>apt upgrade</code> — Actually installs the newer versions of any outdated
+        packages.
+      </li>
+    </ul> 
+    <p style="margin-top:0.6rem">
+      The <code>&&</code> runs both commands in sequence. If the first succeeds, 
+      the second runs automatically.
+    </p>
 
     <h3>Some more basic commands to get you started!</h3>
 
@@ -505,7 +515,36 @@
       </li>
     </ul>
 
-    <div class="quiz-block">
+
+    <h3>
+      Terminal game (for more practice)
+      <span class="optional-badge">OPTIONAL</span>
+    </h3>
+    <p>
+      Make sure you're in your <code>workshop</code> directory, then run:
+    </p>
+    <div class="code-block">
+      <div class="code-block-header">
+        <span>bash</span>
+        <button class="copy-btn" onclick="copyCode(this,
+          'sudo apt install unzip && mkdir -p terminal_game && ' +
+          'curl -L https://cs.hmc.edu/~ccalingo/alien-nostromo.zip ' +
+          '-o temp.zip && unzip temp.zip -d terminal_game && rm temp.zip'
+        )">Copy</button>
+      </div>
+      <pre>sudo apt install unzip && mkdir -p terminal_game && \
+        curl -L https://cs.hmc.edu/~ccalingo/alien-nostromo.zip \
+        -o temp.zip && \
+        unzip temp.zip -d terminal_game && rm temp.zip</pre>
+    </div>
+
+    <p>
+      Then <code>ls</code> to confirm it worked, <code>cd</code> into
+      the new directory "terminal_game", and run <code>cat README.md</code> to get
+      started. The game uses the commands you just learned!
+    </p>
+
+    <div class="quiz-block" id="quiz-3">
       <h4>✦ Quick Check</h4>
       <p class="quiz-question">
         You're inside <code>/home/tutorial/workshop</code> and want to
@@ -528,7 +567,7 @@
       <p class="quiz-feedback"></p>
     </div>
 
-    <div class="quiz-block">
+    <div class="quiz-block" id="quiz-4">
       <h4>✦ Challenge Check</h4>
       <p class="quiz-question">
         If <code>rm -rf</code> means to forcefully recurse through a directory 
@@ -552,57 +591,12 @@
       -irf is the same as -rif or -fir</p>
     </div>
 
-    <h3>Enabling copy/paste in Ubuntu</h3>
-    <p>
-      By default, <kbd>Ctrl+V</kbd> doesn't paste in the terminal.
-      To fix it:
-    </p>
-    <ol>
-      <li>
-        Right-click the Ubuntu title bar → <strong>Properties</strong>
-      </li>
-      <li>
-        Under <em>Edit Options</em>, check
-        <strong>"Use Ctrl+Shift+C/V as Copy/Paste"</strong>
-      </li>
-      <li>Click OK</li>
-    </ol>
-    <p>
-      After that, use <kbd>Ctrl+Shift+V</kbd> to paste into the terminal.
-    </p>
-
-    <h3>
-      Terminal game (for more practice)
-      <span class="optional-badge">OPTIONAL</span>
-    </h3>
-    <p>
-      Make sure you're in your <code>workshop</code> directory, then run:
-    </p>
-    <div class="code-block">
-      <div class="code-block-header">
-        <span>bash</span>
-        <button class="copy-btn" onclick="copyCode(this,
-          'sudo apt install unzip && mkdir -p terminal_game && ' +
-          'curl -L https://cs.hmc.edu/~ccalingo/alien-nostromo.zip ' +
-          '-o temp.zip && unzip temp.zip -d terminal_game && rm temp.zip'
-        )">Copy</button>
-      </div>
-      <pre>sudo apt install unzip && mkdir -p terminal_game && \
-curl -L https://cs.hmc.edu/~ccalingo/alien-nostromo.zip \
-  -o temp.zip && \
-unzip temp.zip -d terminal_game && rm temp.zip</pre>
-    </div>
-    <p>
-      Then <code>ls</code> to confirm it worked, <code>cd</code> into
-      the new directory "terminal_game", and run <code>cat README.md</code> to get
-      started. The game uses the commands you just learned!
-    </p>
   </div>
 
   <hr />
 
   <!-- ── STEP 5 ──────────────────────────────────────────────── -->
-  <div class="step-section">
+  <div class="step-section locked" data-requires="quiz-3 quiz-4">
     <div class="step-header">
       <span class="step-badge">STEP 5</span>
       <h2>Understand Your File System</h2>
@@ -676,7 +670,7 @@ unzip temp.zip -d terminal_game && rm temp.zip</pre>
       </div>
     </div>
 
-    <div class="quiz-block">
+    <div class="quiz-block" id="quiz-5">
       <h4>✦ Quick Check</h4>
       <p class="quiz-question">
         Where are your Ubuntu home files located in Windows
@@ -711,7 +705,7 @@ unzip temp.zip -d terminal_game && rm temp.zip</pre>
   <hr />
 
   <!-- ── STEP 6 ──────────────────────────────────────────────── -->
-  <div class="step-section">
+  <div class="step-section locked" data-requires="quiz-5">
     <div class="step-header">
       <span class="step-badge">STEP 6</span>
       <h2>Set Up VS Code with WSL</h2>
@@ -743,7 +737,7 @@ unzip temp.zip -d terminal_game && rm temp.zip</pre>
                             <span>Windows path</span>
                             <button class="copy-btn"
                               onclick="copyCode(this,
-                                '\\wsl.localhost')"
+                                '\\\\wsl.localhost')"
                             >Copy</button>
                         </div>
                         <pre>\\wsl.localhost</pre>
@@ -800,30 +794,55 @@ unzip temp.zip -d terminal_game && rm temp.zip</pre>
         <div class="accordion-body">
             <div class="accordion-inner">
                 Once set up, you can launch VS Code on any file directly from Ubuntu/WSL, 
-                or any terminal, by running it with the command <code>code filename</code>:
-            </div>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>any terminal</span>
-                    <button class="copy-btn"
-                        onclick="copyCode(this, 'code workshop.txt')"
-                    >Copy</button>
-                </div>
-                <pre>code workshop.txt</pre>
+                or any terminal, by running it with the command <code>code filename</code>.
+                Try it with <code>code workshop.txt</code>
             </div>
         </div>
     </div>
 
+    <div class="quiz-block" id="quiz-6">
+      <h4>✦ Quick Check</h4>
+      <p class="quiz-question">
+        If you wanted to change the terminal in WSL back to PowerShell, how would you 
+        do that?
+      </p>
+        <ul class="quiz-options">
+          <li>
+            <button onclick="checkAnswer(this, false)">
+              Uninstall Ubuntu/WSL
+            </button>
+          </li>
+          <li>
+            <button onclick="checkAnswer(this, true)">
+              Ctrl + Shift + P, <code>Terminal: Select Default Profile</code>
+            </button>
+          </li>
+          <li>
+            <button onclick="checkAnswer(this, false)">
+              Open up the PowerShell app, outside of VS Code
+            </button>
+          </li>
+          <li>
+            <button onclick="checkAnswer(this, false)">
+              You can't
+            </button>
+          </li>
+        </ul>
+      <p class="quiz-feedback"></p>
+    </div>
   </div>
 
   <hr />
 
-  <div class="step-section">
+  <!-- ── SUMMARY ──────────────────────────────────────────────── -->
+  <div class="step-section locked" data-requires="quiz-6">
       <div class="step-header">
           <span class="step-badge">SUMMARY</span>
           <h2>WSL allows you to run Linux</h2>
       </div>
-          What we did was
+      <p>
+        What we did was:
+      </p>
           <ul>
               <li>
                   Insall Windows Subsystem for Linux
@@ -838,7 +857,7 @@ unzip temp.zip -d terminal_game && rm temp.zip</pre>
                   Set up VS Code's terminal view to use WSL/Ubuntu
               </li>
           </ul>
-          <p style="margin-top:0.5rem">
+          <p style="margin-top:0.6rem">
               Remember, your Linux files are located (and completely) contained on the
               Virtual Hard Disk side! If you use Linux to develop things but need access
               to your Windows files, you should probably do some research on that.

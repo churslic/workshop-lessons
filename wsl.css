@@ -133,9 +133,10 @@ nav {
 }
 
 /* ── Step sections ───────────────────────────────────────────── */
-.step-section {
-  margin-bottom: 2.5rem;
-  animation: fadeUp 0.4s ease both;
+.step-section.locked * {
+  color: #555 !important;
+  border-color: #333 !important;
+  background: transparent !important;
 }
 
 @keyframes fadeUp {
