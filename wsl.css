@@ -137,6 +137,7 @@ nav {
   color: #555 !important;
   border-color: #333 !important;
   background: transparent !important;
+  pointer-events: none !important;
 }
 
 @keyframes fadeUp {
