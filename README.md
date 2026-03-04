@@ -8,7 +8,8 @@ is intended to be used by people who can navigate this code fairly
 well and make edits where they want.
 
 You can view this project here: 
-[https://cs.hmc.edu/~ccalingo/wsl-lesson.html](https://cs.hmc.edu/~ccalingo/wsl-lesson.html)
+[https://cs.hmc.edu/~ccalingo/projects/wsl-lesson.html](https://cs.hmc.edu/~ccalingo/projects/wsl-lesson.html)
+
 ---
 
 ## File Structure 
