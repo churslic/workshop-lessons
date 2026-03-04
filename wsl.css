@@ -349,7 +349,7 @@ code {
   transition: max-height 0.3s ease;
 }
 .accordion-body.open {
-  max-height: 800px;
+  max-height: 2000px;
 }
 
 .accordion-inner {
