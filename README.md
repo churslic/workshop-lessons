@@ -21,8 +21,8 @@ You can view a sample of this project here:
 This assumes you have git set up and ready to go! There will be some 
 authentication you need to do. 
 
-- *Fork* the repo to your GitHub account <code>git clone</code> locally to your 
-  laptop.
+- *Fork* the repo to your GitHub account and <code>git clone</code> locally to 
+  your laptop.
   - If you have already done this, then run <code>git status</code> to check if
     you are up to date. Always make sure "main" is up to date! If not, then do
     <code>git pull</code>
