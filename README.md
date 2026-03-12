@@ -8,7 +8,7 @@ is intended to be used by people who can navigate this code fairly
 well and make edits where they want.
 
 You can view a sample of this project here:
-<https://churslic.github.io/workshop-lessons/wsl.html>
+<https://harvey-mudd-open-source.github.io/workshop-lessons/wsl.html>
 
 ## Developer wishlist
 - Take this project so that you do not have to directly code HTML in the main
