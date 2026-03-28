@@ -19,26 +19,28 @@ You can view a sample of this project here:
 - GitHub workflow diagram. They exist, but they're meh. So someone make one.
 
 ## Beginner-ish Instructions for contributing to this repo
-This assumes you have git set up and ready to go! There will be some 
-authentication you need to do. 
+This assumes you have git set up and ready to go, and that you are a member of 
+the HMC Open Source GitHub Organization. These instructions are intentionally
+vague, so ask someone for help or use AI to help walk you though these
+instructions. 
 
-1. *Fork* the repo to your GitHub account and <code>git clone</code> locally to 
-  your laptop.
-  - If you have already done this, then run <code>git status</code> to check if
-    you are up to date. Always make sure "main" is up to date! If not, then do
-    <code>git pull</code>
-2. Create a *branch* and *checkout* (because it's just standard industry 
-  practice), even if your edit is small. This is because "main" is treated as 
-  the stable product that we don't want to mess with unless we're absolutely 
-  sure.
+1. *Fork and clone* the repo.
+  - If you have already done this, always pull from the upstream main (not your
+  forked main!) so that you can keep your project up to date with the original.
+2. Create a *branch* (because it's just standard industry practice), even if 
+your edit is small. Normally, you could also submit an issue, but try these 
+instructions if you want practice.
 3. Make your edits!
   - Use File Explorer/Finder to double-click and open the HTML file to see your 
     changes in a web browser.
 4. Git *add*, *commit*, and *push*!
 5. Submit pull request. At this stage, your changes will be reviewed and 
-  determined if it's acceptable for merging to main.
+  determined if it's acceptable for merging to main (or keeping as a branch).
+6. If your PR is merged with main, make sure you update your local main to match
+and then delete your branch. 
 
-*Instructions too vague? Someone should change it. Or ask AI to help.*
+*Instructions too vague or a little incorrect? Someone should change it.*
+*Or ask AI to help.*
 
 ---
 
